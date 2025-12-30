@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre Catalogue d'Ingrédients{% endblock %}
+
+{% block body %}
+    <h1>Choisissez vos ingrédients</h1>
+
+    <div class="ingredient-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+        {% for ingredient in ingredients %}
+            <div class="card" style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; width: 200px;">
+                <h3>{{ ingredient.nom }}</h3>
+                <p>Type : <strong>{{ ingredient.type }}</strong></p>
+                <p>Prix : {{ ingredient.prix }} €</p>
+                <p>Calories : {{ ingredient.calories }} kcal</p>
+            </div>
+        {% else %}
+            <p>Aucun ingrédient trouvé. Avez-vous chargé les fixtures ?</p>
+        {% endfor %}
+    </div>
+{% endblock %}

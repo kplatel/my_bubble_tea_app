@@ -26,6 +26,15 @@ class Recette
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\ManyToOne(inversedBy: 'recettes')]
+    private ?Ingredient $base = null;
+
+    #[ORM\ManyToOne(inversedBy: 'recettes')]
+    private ?Ingredient $sirop = null;
+
+    #[ORM\ManyToOne(inversedBy: 'topping')]
+    private ?Ingredient $topping = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +84,42 @@ class Recette
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getBase(): ?Ingredient
+    {
+        return $this->base;
+    }
+
+    public function setBase(?Ingredient $base): static
+    {
+        $this->base = $base;
+
+        return $this;
+    }
+
+    public function getSirop(): ?Ingredient
+    {
+        return $this->sirop;
+    }
+
+    public function setSirop(?Ingredient $sirop): static
+    {
+        $this->sirop = $sirop;
+
+        return $this;
+    }
+
+    public function getTopping(): ?Ingredient
+    {
+        return $this->topping;
+    }
+
+    public function setTopping(?Ingredient $topping): static
+    {
+        $this->topping = $topping;
 
         return $this;
     }

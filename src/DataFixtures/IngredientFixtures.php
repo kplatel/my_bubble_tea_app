@@ -18,6 +18,7 @@ class IngredientFixtures extends Fixture
                 ->setCalories(50);
 
                 $manager->persist($base);
+                $this->addReference('ing-green-tea', $base);
 
         $topping = new Ingredient();
         $topping
@@ -27,6 +28,7 @@ class IngredientFixtures extends Fixture
                 ->setCalories(120);
 
                 $manager->persist($topping);
+                $this->addReference('ing-tapioca', $topping);
 
         $sirop = new Ingredient();
         $sirop->setNom('Fraise')
@@ -36,6 +38,7 @@ class IngredientFixtures extends Fixture
 
 
                 $manager->persist($sirop);
+                $this->addReference('ing-fraise', $sirop);
 
 
         $manager->flush();

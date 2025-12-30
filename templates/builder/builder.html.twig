@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer mon Bubble Tea{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white text-center py-3">
+                <h1 class="h3 mb-0 text-primary">Personnalisez votre boisson</h1>
+            </div>
+            <div class="card-body p-4">
+                {{ form_start(form) }}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nom de la recette</label>
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Ex: Tropical Dream'}}) }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Choisir la base</label>
+                        {{ form_widget(form.base, {'attr': {'class': 'form-select'}}) }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ajouter un sirop</label>
+                        {{ form_widget(form.sirop, {'attr': {'class': 'form-select'}}) }}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Choisir le topping</label>
+                        {{ form_widget(form.topping, {'attr': {'class': 'form-select'}}) }}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                             Enregistrer ma recette
+                        </button>
+                    </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
